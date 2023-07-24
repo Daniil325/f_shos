@@ -22,7 +22,7 @@ class Words(Base):
 
     async def add_word(word: str, definition: str, examples, associations, synonyms, image_link):
         query = insert(Words).values(word=word, definition=definition, examples=examples, associations=associations,
-                       synonyms=synonyms, image_link=image_link)
+                       synonyms=synonyms, image_link=image_link).returning(Words.id)
         async with async_session_maker() as session:
             result = await session.execute(query)
             await session.commit()
