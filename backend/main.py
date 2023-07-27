@@ -1,16 +1,17 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from backend.admin.views import WordsAdmin
+from backend.admin.views import WordsAdmin, CountryAdmin
 from backend.routers.router import router as test_router
 from backend.db.controller import *
-from sqladmin import Admin, ModelView
+from sqladmin import Admin
 
 app = FastAPI()
 
 admin = Admin(app, engine)
 
 admin.add_view(WordsAdmin)
+admin.add_view(CountryAdmin)
 
 origins = [
     'http://localhost:3000',

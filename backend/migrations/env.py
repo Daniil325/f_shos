@@ -5,6 +5,7 @@ from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from backend.db.base import Base, DATABASE_URL
 from backend.db.Dictionary.models import Words
+from backend.db.Map.models import Country
 
 from alembic import context
 
